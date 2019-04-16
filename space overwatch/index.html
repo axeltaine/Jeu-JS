@@ -36,6 +36,13 @@
         var enemi17 = new Sprite("img/phara.png", 140, 540);
         var enemi18 = new Sprite("img/phara.png", 140, 690);
 
+        var enemi19 = new Sprite("img/phara.png", 210, 70);
+        var enemi20 = new Sprite("img/phara.png", 210, 220);
+        var enemi21 = new Sprite("img/phara.png", 210, 350);
+        var enemi22 = new Sprite("img/phara.png", 210, 480);
+        var enemi23 = new Sprite("img/phara.png", 210, 610);
+        var enemi24 = new Sprite("img/phara.png", 210, 770);
+
         var balle = new Sprite("img/balle.png", 0, 0);
         balle.display = "none"
 
@@ -47,7 +54,7 @@
         var gg = new Sprite("img/gg.png", 500, 300);
         gg.display = "none"
 
-        var lost = new Sprite("img/lost.png", 500, 300);
+        var lost = new Sprite("img/lost.png", 650, 300);
         lost.display = "none"
 
 
@@ -104,7 +111,7 @@
                 balle.display = "none";
             }
 
-            for (var i = 1; i <= 18; i++) {
+            for (var i = 1; i <= 24; i++) {
                 var enemi = window["enemi" + i];
                 if (enemi.display == "none") continue;
                 if (balle.checkCollision(enemi)) {
@@ -141,7 +148,7 @@
         }
 
 
-        for (var i = 1; i <= 18; i++) {
+        for (var i = 1; i <= 24; i++) {
             window["enemi" + i].startAnimation(moveEnemiToBottom, 30);
 
         }
