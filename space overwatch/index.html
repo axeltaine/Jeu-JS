@@ -68,7 +68,7 @@
         }
         restart.display = "none"
 
-
+        var enemis = 24;
 
         document.onkeydown = function (event) {
 
@@ -119,7 +119,6 @@
         };
 
 
-
         function moveBalle(balle) {
             balle.left -= 10;
             if (balle.left < -40) {
@@ -135,8 +134,12 @@
                     balle.display = "none";
                     enemi.stopAnimation();
                     enemi.display = "none";
-
+                    enemis--;
                 }
+                if (enemis === 0) {
+                    endGame();
+                }
+                
             }
         }
 
@@ -173,6 +176,13 @@
 
             document.location.reload();
         }
+
+        function endGame() {
+            
+            gg.display = "block";
+            restart.display = "block";
+            }
+        
     </script>
 
 </body>
