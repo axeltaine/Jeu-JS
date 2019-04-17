@@ -57,6 +57,9 @@
         var lost = new Sprite("img/lost.png", 650, 300);
         lost.display = "none"
 
+        var restart = new Sprite("img/restart.png", 1700, 800);
+        restart.display = "none"
+
 
 
         document.onkeydown = function (event) {
@@ -125,10 +128,11 @@
                     enemi.stopAnimation();
                     enemi.display = "none";
                 }
-
             }
 
         }
+
+
 
 
         function moveEnemiToTop(enemi) {
@@ -157,6 +161,7 @@
                 lost.display = "block";
             }
         }
+        
     </script>
 
 </body>
