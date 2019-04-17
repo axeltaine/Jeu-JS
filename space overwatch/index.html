@@ -11,9 +11,9 @@
 </head>
 
 <body>
-        <audio src="Transforyou.mp3" type="audio/mp3" autoplay>            
-                Votre navigateur ne prend pas en charge l'élément <code>audio</code>.
-              </audio>
+    <audio src="Transforyou.mp3" type="audio/mp3" autoplay>
+        Votre navigateur ne prend pas en charge l'élément <code>audio</code>.
+    </audio>
 
 
 
@@ -61,6 +61,11 @@
         lost.display = "none"
 
         var restart = new Sprite("img/restart.png", 1700, 800);
+
+        var boutton = document.querySelector("img[src*='img/restart.png']")
+        boutton.onclick = function () {
+            restartGame()
+        }
         restart.display = "none"
 
 
@@ -133,40 +138,40 @@
 
                 }
             }
-
         }
-
-
-
-
-
-
 
         function moveEnemiToTop(enemi) {
 
-            enemi.top -= 4;
+            enemi.top -= 8;
 
             if (enemi.top <= 0) {
-                enemi.left += 50;
-                enemi.startAnimation(moveEnemiToBottom, 30);
+                enemi.left += 80;
+                enemi.startAnimation(moveEnemiToBottom, 40);
             }
             if (enemi.checkCollision(diva)) {
                 enemi.stopAnimation();
                 lost.display = "block";
+                restart.display = "block";
             }
         }
 
         function moveEnemiToBottom(enemi) {
-            enemi.top += 4;
+            enemi.top += 8;
 
             if (enemi.top > document.body.clientHeight - enemi._node.height) {
-                enemi.left += 50;
-                enemi.startAnimation(moveEnemiToTop, 30);
+                enemi.left += 80;
+                enemi.startAnimation(moveEnemiToTop, 40);
             }
             if (enemi.checkCollision(diva)) {
                 enemi.stopAnimation();
                 lost.display = "block";
+                restart.display = "block";
             }
+        }
+
+        function restartGame() {
+
+            document.location.reload();
         }
     </script>
 
