@@ -10,7 +10,7 @@ function Sprite (filename, left, top) {
         },
         set: function( value) {
             this._left = value;
-            this._node.style.left = this._left + "px";
+            this._node.style.left = value + "px";
         }
     } );
     Object.defineProperty( this, "top", {
@@ -19,7 +19,7 @@ function Sprite (filename, left, top) {
         },
         set: function( value) {
             this._top = value;
-            this._node.style.top = this._top + "px";
+            this._node.style.top = value + "px";
         }
     } );
     Object.defineProperty( this, "display", {

@@ -51,7 +51,7 @@
         var button = new Sprite("img/guilherme-neves-dva-pixel-colorido-linda-meo-deus-face.gif", 400, 200);
         button.display = "block"
 
-        var gg = new Sprite("img/gg.png", 500, 300);
+        var gg = new Sprite("img/gg.png", 650, 300);
         gg.display = "none"
 
         var lost = new Sprite("img/lost.png", 650, 300);
@@ -98,11 +98,16 @@
             if (event.keyCode == 13) {
                 if (button.display == "block") {
                     button.display = "none";
+                    for (var i = 1; i <= 24; i++) {
+                        window["enemi" + i].startAnimation(moveEnemiToBottom, 30);
 
+                    }
                 }
             }
 
         };
+
+
 
         function moveBalle(balle) {
             balle.left -= 10;
@@ -125,12 +130,18 @@
 
         }
 
+
         function moveEnemiToTop(enemi) {
+
             enemi.top -= 4;
 
             if (enemi.top <= 0) {
                 enemi.left += 50;
                 enemi.startAnimation(moveEnemiToBottom, 30);
+            }
+            if (enemi.checkCollision(diva)) {
+                enemi.stopAnimation();
+                lost.display = "block";
             }
         }
 
@@ -145,12 +156,6 @@
                 enemi.stopAnimation();
                 lost.display = "block";
             }
-        }
-
-
-        for (var i = 1; i <= 24; i++) {
-            window["enemi" + i].startAnimation(moveEnemiToBottom, 30);
-
         }
     </script>
 
