@@ -5,15 +5,9 @@ html, body {
     height: 100%;
 }
 
-@keyframes defile {
-    0% { background-position-x:   0; }
-  100% { background-position-x: 100vw; }
-}
-
 body {
-    background: url(../img/fond.jpg);
+    background: url(../img/fond.gif);
     background-size: cover;
     overflow: hidden;
-    animation: defile 40s linear infinite;
 }
 
