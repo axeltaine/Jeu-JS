@@ -11,7 +11,9 @@
 </head>
 
 <body>
-    
+
+    <!--*************** Son ****************-->
+
     <audio src="Transforyou.mp3" type="audio/mp3" autoplay>
         Votre navigateur ne prend pas en charge l'élément <code>audio</code>.
     </audio>
@@ -19,6 +21,9 @@
 
 
     <script type="text/javascript">
+        /*************** Liste des Variables (objet Sprite) ****************/
+
+
         var enemi1 = new Sprite("img/phara.png", 0, 0);
         var enemi2 = new Sprite("img/phara.png", 0, 150);
         var enemi3 = new Sprite("img/phara.png", 0, 280);
@@ -74,26 +79,28 @@
 
         var enemis = 24;
 
+        /*************** Liste des Evenements sur les touches du clavier ****************/
+
         document.onkeydown = function (event) {
 
             if (event.keyCode == 102) { // deplacement droite
                 diva.left += 10;
             } else if (event.keyCode == 104) { //deplacement haut
                 diva.top -= 10;
-            } else if (event.keyCode == 98) {  //deplacement bas
+            } else if (event.keyCode == 98) { //deplacement bas
                 diva.top += 10;
             } else if (event.keyCode == 100) { // deplacement gauche
                 diva.left -= 10;
-            }else if (event.keyCode == 103) { // deplacement haut gauche
+            } else if (event.keyCode == 103) { // deplacement haut gauche
                 diva.top -= 10;
                 diva.left -= 10;
-            }else if (event.keyCode == 105) { // deplacement haut droit
+            } else if (event.keyCode == 105) { // deplacement haut droit
                 diva.top -= 10;
                 diva.left += 10;
-            }else if (event.keyCode == 97) { // deplacement bas gauche
+            } else if (event.keyCode == 97) { // deplacement bas gauche
                 diva.top += 10;
                 diva.left -= 10;
-            }else if (event.keyCode == 99) { // deplacement bas droit
+            } else if (event.keyCode == 99) { // deplacement bas droit
                 diva.top += 10;
                 diva.left += 10;
             }
@@ -119,14 +126,14 @@
                     balle.left = diva.left + (diva._node.width - balle._node.width) / 2;
                     balle.top = diva.top;
                     balle.startAnimation(moveBalle, 20);
-                    
+
                 }
                 if (explosion.display == "none") {
                     explosion.left = diva.left + (diva._node.width - explosion._node.width) / 2;
                     explosion.top = diva.top;
                     explosion.startAnimation(explosionBalle, 20);
                 }
-               
+
             }
 
             if (event.keyCode == 13) {
@@ -141,6 +148,9 @@
 
         };
 
+
+        /*************** Liste des fonctions ****************/
+
         function explosionBalle(explosion) {
             explosion.left -= 10;
             if (explosion.left < -40) {
@@ -150,15 +160,16 @@
             for (var i = 1; i <= 24; i++) {
                 var enemi = window["enemi" + i];
                 if (enemi.display == "none") continue;
-                if (explosion.checkCollision(enemi)) {                  
+                if (explosion.checkCollision(enemi)) {
                     explosion.display = "block";
-                    window.setTimeout(function(){
+                    window.setTimeout(function () {
                         explosion.display = "none";
                     }, 800);
-                
-        }
+
+                }
             }
         }
+
 
         function moveBalle(balle) {
             balle.left -= 10;
@@ -180,7 +191,7 @@
                 if (enemis === 0) {
                     endGame();
                 }
-                
+
             }
         }
 
@@ -219,11 +230,10 @@
         }
 
         function endGame() {
-            
+
             gg.display = "block";
             restart.display = "block";
-            }
-        
+        }
     </script>
 
 </body>
