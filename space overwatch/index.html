@@ -106,7 +106,14 @@
                     balle.left = diva.left + (diva._node.width - balle._node.width) / 2;
                     balle.top = diva.top;
                     balle.startAnimation(moveBalle, 20);
+                    
                 }
+                if (explosion.display == "none") {
+                    explosion.left = diva.left + (diva._node.width - explosion._node.width) / 2;
+                    explosion.top = diva.top;
+                    explosion.startAnimation(explosionBalle, 20);
+                }
+               
             }
 
             if (event.keyCode == 13) {
@@ -121,6 +128,24 @@
 
         };
 
+        function explosionBalle(explosion) {
+            explosion.left -= 10;
+            if (explosion.left < -40) {
+                explosion.stopAnimation();
+                explosion.display = "none";
+            }
+            for (var i = 1; i <= 24; i++) {
+                var enemi = window["enemi" + i];
+                if (enemi.display == "none") continue;
+                if (explosion.checkCollision(enemi)) {                  
+                    explosion.display = "block";
+                    window.setTimeout(function(){
+                        explosion.display = "none";
+                    }, 800);
+                
+        }
+            }
+        }
 
         function moveBalle(balle) {
             balle.left -= 10;
@@ -137,7 +162,6 @@
                     balle.display = "none";
                     enemi.stopAnimation();
                     enemi.display = "none";
-                    explosion.display = "block";
                     enemis--;
                 }
                 if (enemis === 0) {
