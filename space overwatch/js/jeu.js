@@ -39,7 +39,7 @@ function Sprite(filename, left, top) {
     this.top = top;
 }
 
-/*************** Animations ****************/
+/*************** methode pour animations ****************/
 
 Sprite.prototype.startAnimation = function (fct, interval) {
     if (this._clock) window.clearInterval(this._clock);
